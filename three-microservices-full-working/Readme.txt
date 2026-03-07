@@ -1,3 +1,4 @@
+minikube start --driver=docker 
 Build All 3 Images
 
 From project root:
