@@ -1,0 +1,27 @@
+
+namespace: micro-demo
+
+apiGateway:
+  image: api-gateway:latest
+  replicas: 1
+  servicePort: 7080
+  serviceType: NodePort
+  nodePort: 30080
+
+orderService:
+  image: order-service:latest
+  replicas: 1
+  servicePort: 7081
+
+paymentService:
+  image: payment-service:latest
+  replicas: 1
+  servicePort: 7082
+
+resources:
+  requests:
+    cpu: "250m"
+    memory: "256Mi"
+  limits:
+    cpu: "500m"
+    memory: "512Mi"

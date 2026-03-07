@@ -1,0 +1,12 @@
+
+server:
+  port: 7080
+
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: order-service
+          uri: http://order-service:7081
+          predicates:
+            - Path=/orders/**
