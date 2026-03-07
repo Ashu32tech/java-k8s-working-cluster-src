@@ -27,3 +27,4 @@ minikube service api-gateway -n micro-demo
 
 //clean the deployment
 helm delete microservices 
+minikube stop
