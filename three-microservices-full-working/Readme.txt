@@ -47,6 +47,12 @@ attrib -h -r config
 
 aws eks --region ap-south-1 update-kubeconfig --name microservices-cluster
 
+kubectl get nodes
+
+2 nodes   Ready   <none>
+
+then deploy
+
 
 cd full-microservices-helm-chart
 
