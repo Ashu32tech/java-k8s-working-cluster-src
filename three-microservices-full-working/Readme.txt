@@ -28,3 +28,12 @@ minikube service api-gateway -n micro-demo
 //clean the deployment
 helm delete microservices 
 minikube stop
+
+//docker image push
+docker login
+PS D:\aiInAction> docker tag api-gateway:latest ashu33tech/api-gateway:latest
+PS D:\aiInAction> docker push ashu33tech/api-gateway:latest
+PS D:\aiInAction> docker tag payment-service:latest ashu33tech/payment-service:latest
+PS D:\aiInAction> docker push ashu33tech/payment-service:latest   
+PS D:\aiInAction> docker tag order-service:latest ashu33tech/order-service:latest    
+PS D:\aiInAction> docker push ashu33tech/order-service:latest  
