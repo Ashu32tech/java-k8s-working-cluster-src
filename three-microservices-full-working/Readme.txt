@@ -37,3 +37,33 @@ PS D:\aiInAction> docker tag payment-service:latest ashu33tech/payment-service:l
 PS D:\aiInAction> docker push ashu33tech/payment-service:latest   
 PS D:\aiInAction> docker tag order-service:latest ashu33tech/order-service:latest    
 PS D:\aiInAction> docker push ashu33tech/order-service:latest  
+
+//aws setup
+eksctl create cluster --name microservices-cluster  --region ap-south-1 --node-type t3.medium --nodes 2
+
+cd C:\Users\ashu3\.kube
+
+attrib -h -r config
+
+aws eks --region ap-south-1 update-kubeconfig --name microservices-cluster
+
+
+cd full-microservices-helm-chart
+
+helm upgrade --install microservices . --namespace micro-demo --create-namespace
+
+kubectl get pods -n micro-demo
+
+kubectl get svc -n micro-demo
+
+api-gateway   LoadBalancer   EXTERNAL-IP
+
+http://<EXTERNAL-IP>
+
+kubectl logs -f deployment/api-gateway -n micro-demo
+
+helm delete microservices -n micro-demo
+eksctl delete cluster --name microservices-cluster
+
+
+eksctl delete cluster --name microservices-cluster
