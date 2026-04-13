@@ -73,3 +73,7 @@ eksctl delete cluster --name microservices-cluster
 
 
 eksctl delete cluster --name microservices-cluster
+
+//context switch
+kubectl config use-context arn:aws:eks:ap-south-1:524365117948:cluster/microservices-cluster
+kubectl config use-context minikube
